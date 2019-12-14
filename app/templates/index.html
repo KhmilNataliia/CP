@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Car Paint App</title>
+
+
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color: #98FB98">
+
+<nav class="navbar navbar-dark navbar-fixed-top" style="background-color: #3CB371;">
+<br>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <span class="navbar-brand" style="color: #2F4F4F; font-size: 25px">Поиск авто-красок</span>
+    </div>
+    <ul class="nav nav-pills" style="background-color: #3CB371;">
+        <li class="nav-link">
+            <a href="{{ url_for('home') }}" style="color: #2F4F4F; font-size: 20px">
+                <span class="glyphicon glyphicon-home" style="color: #2F4F4F; font-size: 20px"></span> Главная</a></li>
+        {% if current_user.is_authenticated %}
+            <li class="nav-link"><a href="{{ url_for('search_confs') }}" style="color: #2F4F4F; font-size: 20px">
+                <span class="glyphicon glyphicon-search" style="color: #2F4F4F; font-size: 20px"></span> Поиск</a></li>
+        {% endif %}
+    <ul class="nav navbar-nav navbar-right">
+        {% if current_user.is_authenticated %}
+            <li><a href="{{ url_for('profile') }}" style="color: #2F4F4F; font-size: 20px">
+                <span class="glyphicon glyphicon-user" style="color: #2F4F4F; font-size: 20px"></span> Личный кабинет</a></li>
+            <li><a href="{{ url_for('logout') }}" style="color: #2F4F4F; font-size: 20px">
+                <span class="glyphicon glyphicon-log-out" style="color: #2F4F4F; font-size: 20px"></span> Выйти</a></li>
+        {% else %}
+           <li><a href="{{ url_for('signin') }}" style="color: #2F4F4F; font-size: 20px">
+               <span class="glyphicon glyphicon-log-in" style="color: #2F4F4F; font-size: 20px"></span> Войти</a></li>
+           <li><a href="{{ url_for('register') }}" style="color: #2F4F4F; font-size: 20px">
+               <span class="glyphicon glyphicon-user" style="color: #2F4F4F; font-size: 20px"></span> Регистрация</a></li>
+        {% endif %}
+    </ul>
+        </ul>
+  </div>
+</nav>
+   <main role="main" class="container">
+   <br>
+   <br>
+   <br>
+   <br>
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+        <div class="jumbotron" style="background-color: #90EE90">
+        <div class="row marketing">
+
+          {% block content %}{% endblock %}
+
+        </div>
+        </div>
+   </main>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{% block content %}
+    {% for item in items %}
+        <center>
+          <div class="col-md-6" >
+        <div class="media">
+            <div class="jumbotron" style="background-color: #90EE90; border: 3px; border-color: #2F4F4F; border-style:solid; height: 600px">
+            <br>
+          <img class="mr-3" style="height: 300px; width: 325px" src="{{ item.image }}">
+          <div class="media-body">
+               <div style="background-color: #90EE90"> <h3 class="mt-0">{{ item.name }}</h3> </div>
+               <h4> Цена: {{ item.price }}</h4>
+              <a href="{{ url_for('item', item_id=item._id) }}" class="btn btn-success">Детали</a>
+          </div>
+            <br>
+            </div>
+        </div>
+
+          <br>
+          </div>
+        </center>
+    {% endfor %}
+{% endblock content %}

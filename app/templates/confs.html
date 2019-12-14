@@ -1,0 +1,84 @@
+{% extends "index.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+               <center> <legend class="border-bottom mb-4">Параметры поиска</legend></center>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    {{ form.color.label(class="form-control-label") }}
+                    {% if form.color.errors %}
+                        {{ form.color(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.color.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.color(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.prod.label(class="form-control-label") }}
+                    {% if form.prod.errors %}
+                        {{ form.prod(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.prod.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.prod(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+             <div class="form-group">
+                    {{ form.base.label(class="form-control-label") }}
+                    {% if form.base.errors %}
+                        {{ form.base(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.base.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.base(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            <div class="form-group">
+                    {{ form.min_price.label(class="form-control-label") }}
+                    {% if form.min_price.errors %}
+                        {{ form.min_price(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.min_price.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.min_price(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            <div class="form-group">
+                    {{ form.max_price.label(class="form-control-label") }}
+                    {% if form.max_price.errors %}
+                        {{ form.max_price(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.max_price.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.max_price(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-success") }}
+            </div>
+            </div>
+                <div class="col-sm-4"> </div>
+            </fieldset>
+
+        </form>
+    </div>
+{% endblock content %}

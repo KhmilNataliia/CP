@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+{% block content %}
+    <h1>{{ item.name}}</h1>
+     <div class="jumbotron" style="background-color: #90EE90; border: 3px; border-color: #2F4F4F; border-style:solid">
+    <div class="media">
+            <br>
+            <div class="col-md-6" >
+          <img class="mr-3" style="height: 300px; width: 325px" src="{{ item.image }}">
+          <div class="media-body">
+               <div style="background-color: #90EE90"> <h5 class="mt-0">
+                   <a class="mr-2" href="{{ item.url }}" style="color: #2F4F4F; font-size: 15px">
+                       <span class="glyphicon glyphicon-link" style="color: #2F4F4F; font-size: 15px"></span>{{ item.name }}</a> </h5> </div>
+              <h3> Цена: {{ item.price }}</h3>
+          </div>
+            </div>
+            <div class="col-md-6" >
+                <table class="table table-bordered">
+                    <tbody>
+                    {% for d in item.data %}
+                        <tr style="border-color: #2F4F4F; border-style:solid">
+                        <th style="border-color: #2F4F4F; border-style:solid">
+                            {{ d[0] }}
+                        </th>
+                        <td style="border-color: #2F4F4F; border-style:solid">
+                            {{ d[1] }}
+                        </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            <br>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
