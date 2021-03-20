@@ -24,7 +24,7 @@ incremental==17.5.0
 infinity==1.4
 intervals==0.8.1
 itsdangerous==0.24
-Jinja2==2.10
+Jinja2==2.11.3
 klein==17.10.0
 lxml==4.2.4
 Mako==1.0.7
