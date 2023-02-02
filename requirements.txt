@@ -52,7 +52,7 @@ SQLAlchemy-Utils==0.33.4
 Twisted==18.7.0
 validators==0.12.2
 w3lib==1.19.0
-Werkzeug==0.14.1
+Werkzeug==0.15.5
 WTForms==2.2.1
 WTForms-Alchemy==0.16.7
 WTForms-Components==0.10.3
